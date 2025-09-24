@@ -1,6 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.project1.views.MainWindow" />
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.project1.views.MainWindow">
+   <children>
+      <SplitPane dividerPositions="0.41903171953255425" layoutX="-1.0" prefHeight="400.0" prefWidth="601.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="228.0">
+               <children>
+                  <GridPane layoutX="14.0" layoutY="13.0" prefHeight="324.0" prefWidth="221.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="10.0" prefWidth="73.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.5" minWidth="10.0" prefWidth="144.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="83.0" minHeight="1.5" prefHeight="57.5" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="134.5" minHeight="10.0" prefHeight="110.5" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="225.5" minHeight="10.0" prefHeight="49.5" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="251.5" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Task Name" GridPane.valignment="TOP" />
+                        <Label text="Description" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                        <Label text="Priority" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                        <TextArea fx:id="newTaskName" maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity" prefHeight="33.0" prefWidth="144.0" GridPane.columnIndex="1" GridPane.valignment="TOP" />
+                        <TextArea fx:id="newTaskDescription" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="95.0" prefWidth="144.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                        <ComboBox fx:id="newTaskPriority" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                        <Button fx:id="newTaskAddButton" mnemonicParsing="false" onAction="#addNewTask" text="Add Task" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+                     </children>
+                  </GridPane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="398.0" prefWidth="482.0">
+               <children>
+                  <ListView layoutX="13.0" layoutY="13.0" prefHeight="371.0" prefWidth="317.0" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
+</AnchorPane>
