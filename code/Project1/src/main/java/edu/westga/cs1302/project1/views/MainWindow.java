@@ -33,5 +33,4 @@ public class MainWindow {
     	/* This is the setup for the UI */
     	
     }
-    
 }
