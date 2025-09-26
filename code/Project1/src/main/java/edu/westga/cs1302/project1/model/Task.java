@@ -1,5 +1,11 @@
 package edu.westga.cs1302.project1.model;
 
+/**
+ * Task class for a task model which holds a name, description and priority
+ * 
+ * @author CS 1302
+ * @version Fall 2025
+ */
 public class Task {
 	
 	private String name;
@@ -34,23 +40,42 @@ public class Task {
 		this.priority = priority;
 	}
 	
-	/** Returns the name of the Task model
+	/** 
+	 * Returns the name of the Task model
 	 * 
 	 * @return string name of the Task
-	 * 
 	 */
 	public String toString() {
 		return this.name;
 	}
 	
+	/** 
+	 * Returns the description of the Task model
+	 * 
+	 * @return string description of the task
+	 */
 	public String getDescription() {
+		if (this.description == null) {
+			return "";
+		}
+		
 		return this.description;
 	}
 	
+	/** 
+	 * Returns the priority of the Task model
+	 *
+	 * @return string priority of the task
+	 */
 	public String getPriority() {
 		return this.priority;
 	}
 	
+	/**
+	 * Sets the description of the Task model
+	 * 
+	 * @param description that you want to set for the task
+	 */
 	public void setDescription(String description) {
 		this.description = description;
 	}
