@@ -55,10 +55,6 @@ public class MainWindow {
 			String priority = this.newTaskPriority.getSelectionModel().getSelectedItem();
 			Task newTask = new Task(name, description, priority);
 			this.listView.getItems().add(newTask);
-			System.out.println("New Task Created!");
-			System.out.println(newTask.toString());
-			System.out.println(newTask.getDescription());
-			System.out.println(newTask.getPriority());
 		} catch (IllegalArgumentException | NullPointerException exception) {
 			Alert alert = new Alert(Alert.AlertType.ERROR);
 			alert.setContentText(exception.getMessage());

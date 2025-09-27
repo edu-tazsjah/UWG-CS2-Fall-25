@@ -40,6 +40,7 @@ public class Task {
 		if (description == null) {
 			this.description = "";
 		}
+		this.description = description;
 	}
 	
 	/** 
