@@ -69,15 +69,13 @@ public class MainWindow {
 	 * @param event that triggered this method
 	 */
 	public void onSelectTask(MouseEvent event) {
-		if (event.getEventType() == MouseEvent.MOUSE_CLICKED) {
-			if (this.listView.getSelectionModel().getSelectedItem() != null) {
-				Task task = this.listView.getSelectionModel().getSelectedItem();
-				String description = task.getDescription();
-				String priority = task.getPriority();
+		if (this.listView.getSelectionModel().getSelectedItem() != null) {
+			Task task = this.listView.getSelectionModel().getSelectedItem();
+			String description = task.getDescription();
+			String priority = task.getPriority();
 
-				this.currentTaskDescription.setText(description);
-				this.currentTaskPriority.setText(priority);
-			}
+			this.currentTaskDescription.setText(description);
+			this.currentTaskPriority.setText(priority);
 		}
 	}
 	
@@ -87,7 +85,7 @@ public class MainWindow {
 	public void updateDescription() {
 		if (this.listView.getSelectionModel().isEmpty()) {
 			this.alert("You must have a task selected!", AlertType.ERROR);
-			this.currentTaskDescription.setText(null);
+			this.currentTaskDescription.clear();
 			return;
 		}
 		
