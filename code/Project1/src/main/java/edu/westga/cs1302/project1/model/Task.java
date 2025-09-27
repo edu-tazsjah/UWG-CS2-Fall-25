@@ -15,9 +15,9 @@ public class Task {
 	/** Creates a new Task model
 	 * 
 	 * @precondition name != null
-	 * 				!name.isEmpty
+	 * 				!name.isEmpty()
 	 * 				priority != null
-	 * 				!priority.isEmpty
+	 * 				!priority.isEmpty()
 	 * @postcondition none
 	 * 
 	 * @param name of the Task model
@@ -36,8 +36,10 @@ public class Task {
 		}
 		
 		this.name = name;
-		this.description = description;
 		this.priority = priority;
+		if (description == null) {
+			this.description = "";
+		}
 	}
 	
 	/** 
