@@ -32,7 +32,8 @@
                   <RowConstraints maxHeight="83.0" minHeight="1.5" prefHeight="57.5" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="134.5" minHeight="10.0" prefHeight="110.5" vgrow="SOMETIMES" />
                 <RowConstraints maxHeight="225.5" minHeight="10.0" prefHeight="49.5" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="251.5" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="225.5" minHeight="10.0" prefHeight="49.5" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="251.5" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Label text="Task Name" GridPane.valignment="TOP" />
@@ -40,8 +41,9 @@
                   <Label text="Priority" GridPane.rowIndex="2" GridPane.valignment="TOP" />
                   <TextArea fx:id="newTaskDescription" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="95.0" prefWidth="144.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
                   <ComboBox fx:id="newTaskPriority" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-                  <Button fx:id="newTaskAddButton" mnemonicParsing="false" onAction="#addNewTask" text="Add Task" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+                  <Button fx:id="newTaskAddButton" mnemonicParsing="false" onAction="#addNewTask" text="Add Task" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP" />
                   <TextField fx:id="newTaskName" alignment="TOP_LEFT" centerShape="false" prefHeight="25.0" prefWidth="126.0" GridPane.columnIndex="1" GridPane.valignment="TOP" />
+                  <Button fx:id="deleteTaskButton" disable="true" mnemonicParsing="false" onAction="#deleteSelectedTask" text="Delete Task" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP" />
                </children>
                <padding>
                   <Insets left="10.0" right="10.0" />
@@ -57,12 +59,12 @@
                <children>
                 <AnchorPane minHeight="0.0" minWidth="0.0" pickOnBounds="false" prefHeight="398.0" prefWidth="305.0">
                      <children>
-                        <ListView fx:id="listView" layoutX="13.0" layoutY="13.0" onMouseClicked="#onSelectTask" prefHeight="291.0" prefWidth="314.0" />
+                        <ListView fx:id="listView" layoutX="13.0" layoutY="13.0" onMouseClicked="#onSelectTask" onMouseExited="#onMouseExited" prefHeight="291.0" prefWidth="314.0" />
                         <Label layoutX="14.0" layoutY="315.0" text="Task Description" />
-                        <TextArea fx:id="currentTaskDescription" layoutX="14.0" layoutY="340.0" prefHeight="44.0" prefWidth="150.0" />
-                        <Label layoutX="191.0" layoutY="315.0" text="Priority" />
-                        <TextField fx:id="currentTaskPriority" editable="false" layoutX="191.0" layoutY="340.0" prefHeight="44.0" prefWidth="138.0" />
-                        <Button fx:id="updateDescriptionButton" layoutX="123.0" layoutY="311.0" mnemonicParsing="false" onAction="#updateDescription" text="Save" />
+                        <TextArea fx:id="currentTaskDescription" layoutX="14.0" layoutY="340.0" prefHeight="44.0" prefWidth="239.0" />
+                        <Label layoutX="264.0" layoutY="315.0" text="Priority" />
+                        <TextField fx:id="currentTaskPriority" editable="false" layoutX="264.0" layoutY="340.0" prefHeight="44.0" prefWidth="65.0" text="MEDIUM" />
+                        <Button fx:id="updateDescriptionButton" layoutX="212.0" layoutY="311.0" mnemonicParsing="false" onAction="#updateDescription" text="Save" />
                      </children>
                   </AnchorPane>
                </children>

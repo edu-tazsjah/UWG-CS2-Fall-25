@@ -4,6 +4,7 @@ import edu.westga.cs1302.project1.model.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
@@ -36,6 +37,9 @@ public class MainWindow {
 	@FXML
 	private TextField currentTaskPriority;
 
+	@FXML
+	private Button deleteTaskButton;
+	
 	/**
 	 * Perform any needed initialization of UI components and underlying objects.
 	 */
@@ -76,6 +80,7 @@ public class MainWindow {
 
 			this.currentTaskDescription.setText(description);
 			this.currentTaskPriority.setText(priority);
+			this.deleteTaskButton.setDisable(false);
 		}
 	}
 	
@@ -105,4 +110,32 @@ public class MainWindow {
 		alert.setContentText(message);
 		alert.showAndWait();
 	}
+	
+	/**
+	 * Removes the selected task within the GUI
+	 */
+	public void deleteSelectedTask() {
+		if (this.listView.getSelectionModel().getSelectedItem() != null) {
+			Task deleteTask = this.listView.getSelectionModel().getSelectedItem();
+			this.listView.getItems().remove(deleteTask);
+			this.currentTaskDescription.clear();
+			this.currentTaskPriority.clear();
+			if (!this.deleteTaskButton.isDisable()) {
+				this.deleteTaskButton.setDisable(true);
+			}
+			this.alert("Successfully deleted the task.", AlertType.INFORMATION);
+		}
+	}
+	
+	/**
+	 * Event handler for the button disable / enable
+	 * 
+	 * @param event that happened within the GUI
+	 */
+	public void onMouseExited(MouseEvent event) {
+		if (this.listView.getSelectionModel().getSelectedItem() == null) {
+			this.deleteTaskButton.setDisable(true);
+		}
+	}
+
 }	
