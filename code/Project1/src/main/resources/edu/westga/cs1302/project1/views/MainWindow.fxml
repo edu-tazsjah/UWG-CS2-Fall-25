@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
 <GridPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.project1.views.MainWindow">
@@ -21,33 +22,69 @@
       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <SplitPane dividerPositions="0.5" prefHeight="400.0" prefWidth="601.0">
+      <SplitPane dividerPositions="0.5" prefHeight="400.0" prefWidth="601.0" GridPane.valignment="TOP">
         <items>
-            <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="367.0" prefWidth="246.0" snapToPixel="false">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="10.0" prefWidth="73.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.5" minWidth="10.0" prefWidth="144.0" />
-              </columnConstraints>
-              <rowConstraints>
-                  <RowConstraints maxHeight="83.0" minHeight="1.5" prefHeight="57.5" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="134.5" minHeight="10.0" prefHeight="110.5" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="225.5" minHeight="10.0" prefHeight="49.5" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="225.5" minHeight="10.0" prefHeight="49.5" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="251.5" minHeight="10.0" prefHeight="41.0" vgrow="SOMETIMES" />
-              </rowConstraints>
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
                <children>
-                  <Label text="Task Name" GridPane.valignment="TOP" />
-                  <Label text="Description" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-                  <Label text="Priority" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-                  <TextArea fx:id="newTaskDescription" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="95.0" prefWidth="144.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-                  <ComboBox fx:id="newTaskPriority" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-                  <Button fx:id="newTaskAddButton" mnemonicParsing="false" onAction="#addNewTask" text="Add Task" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP" />
-                  <TextField fx:id="newTaskName" alignment="TOP_LEFT" centerShape="false" prefHeight="25.0" prefWidth="126.0" GridPane.columnIndex="1" GridPane.valignment="TOP" />
-                  <Button fx:id="deleteTaskButton" disable="true" mnemonicParsing="false" onAction="#deleteSelectedTask" text="Delete Task" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP" />
+                  <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="306.0" prefWidth="297.0">
+                     <children>
+                        <GridPane alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="290.0" prefWidth="295.0" snapToPixel="false">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="110.0" minWidth="10.0" prefWidth="73.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.5" minWidth="10.0" prefWidth="144.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                              <RowConstraints maxHeight="83.0" minHeight="1.5" prefHeight="57.5" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="134.5" minHeight="10.0" prefHeight="110.5" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="225.5" minHeight="10.0" prefHeight="49.5" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="225.5" minHeight="10.0" prefHeight="49.5" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Task Name" GridPane.valignment="TOP" />
+                              <Label text="Description" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                              <Label text="Priority" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                              <TextArea fx:id="newTaskDescription" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="95.0" prefWidth="175.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                              <ComboBox fx:id="newTaskPriority" prefWidth="150.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                              <Button fx:id="newTaskAddButton" mnemonicParsing="false" onAction="#addNewTask" text="Add Task" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+                              <TextField fx:id="newTaskName" alignment="TOP_LEFT" centerShape="false" prefHeight="25.0" prefWidth="118.0" GridPane.columnIndex="1" GridPane.valignment="TOP" />
+                              <Button fx:id="deleteTaskButton" disable="true" mnemonicParsing="false" onAction="#deleteSelectedTask" text="Delete Task" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+                           </children>
+                           <padding>
+                              <Insets left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </GridPane>
+                     </children>
+                  </HBox>
+                  <GridPane prefHeight="86.0" prefWidth="277.0" GridPane.rowIndex="1">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="92.0" minWidth="10.0" prefWidth="78.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="132.0" minWidth="10.0" prefWidth="132.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="88.0" minWidth="10.0" prefWidth="69.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="33.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="21.0" minHeight="10.0" prefHeight="19.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label fx:id="priorityCountLowLabel" opacity="0.0" text="LOW : 0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                        <Label fx:id="priorityCountMediumLabel" opacity="0.0" text="MEDIUM: 0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                        <Label fx:id="priorityCountHighLabel" opacity="0.0" text="HIGH: 0" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                        <Button fx:id="togglePriority" mnemonicParsing="false" onAction="#togglePriority" prefHeight="25.0" prefWidth="129.0" text="Show Priority Count" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="TOP" />
+                     </children>
+                     <GridPane.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </GridPane.margin>
+                  </GridPane>
                </children>
-               <padding>
-                  <Insets left="10.0" right="10.0" />
-               </padding>
             </GridPane>
             <GridPane>
                <columnConstraints>
@@ -57,14 +94,14 @@
                   <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                <AnchorPane minHeight="0.0" minWidth="0.0" pickOnBounds="false" prefHeight="398.0" prefWidth="305.0">
+                <AnchorPane minHeight="0.0" minWidth="0.0" pickOnBounds="false" prefHeight="447.0" prefWidth="404.0">
                      <children>
-                        <ListView fx:id="listView" layoutX="13.0" layoutY="13.0" onMouseClicked="#onSelectTask" onMouseExited="#onMouseExited" prefHeight="291.0" prefWidth="314.0" />
+                        <ListView fx:id="listView" layoutX="13.0" layoutY="13.0" onMouseClicked="#onSelectTask" onMouseExited="#onMouseExited" prefHeight="291.0" prefWidth="268.0" />
                         <Label layoutX="14.0" layoutY="315.0" text="Task Description" />
-                        <TextArea fx:id="currentTaskDescription" layoutX="14.0" layoutY="340.0" prefHeight="44.0" prefWidth="239.0" />
-                        <Label layoutX="264.0" layoutY="315.0" text="Priority" />
-                        <TextField fx:id="currentTaskPriority" editable="false" layoutX="264.0" layoutY="340.0" prefHeight="44.0" prefWidth="65.0" text="MEDIUM" />
-                        <Button fx:id="updateDescriptionButton" layoutX="212.0" layoutY="311.0" mnemonicParsing="false" onAction="#updateDescription" text="Save" />
+                        <TextArea fx:id="currentTaskDescription" layoutX="14.0" layoutY="340.0" prefHeight="44.0" prefWidth="187.0" />
+                        <Label layoutX="229.0" layoutY="315.0" text="Priority" />
+                        <TextField fx:id="currentTaskPriority" alignment="CENTER" editable="false" layoutX="209.0" layoutY="340.0" prefHeight="44.0" prefWidth="77.0" />
+                        <Button fx:id="updateDescriptionButton" layoutX="160.0" layoutY="311.0" mnemonicParsing="false" onAction="#updateDescription" text="Save" />
                      </children>
                   </AnchorPane>
                </children>

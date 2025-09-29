@@ -1,11 +1,13 @@
 package edu.westga.cs1302.project1.views;
 
+import edu.westga.cs1302.project1.model.PriorityCount;
 import edu.westga.cs1302.project1.model.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -40,6 +42,20 @@ public class MainWindow {
 	@FXML
 	private Button deleteTaskButton;
 	
+	@FXML
+	private Button togglePriority;
+	
+	@FXML 
+	private Label priorityCountHighLabel;
+	
+	@FXML
+	private Label priorityCountMediumLabel;
+	
+	@FXML
+	private Label priorityCountLowLabel;
+	
+	private boolean showPriorityCount;
+	
 	/**
 	 * Perform any needed initialization of UI components and underlying objects.
 	 */
@@ -47,6 +63,7 @@ public class MainWindow {
 		this.newTaskPriority.getItems().add("HIGH");
 		this.newTaskPriority.getItems().add("MEDIUM");
 		this.newTaskPriority.getItems().add("LOW");
+		this.showPriorityCount = false;
 	}
 
 	/**
@@ -135,6 +152,28 @@ public class MainWindow {
 	public void onMouseExited(MouseEvent event) {
 		if (this.listView.getSelectionModel().getSelectedItem() == null) {
 			this.deleteTaskButton.setDisable(true);
+		}
+	}
+	
+	/**
+	 * This method toggles the display for the priority counts
+	 */
+	public void togglePriority() {
+		if (!this.showPriorityCount) {
+			this.priorityCountHighLabel.setText("HIGH " + PriorityCount.getPriorityCount(this.listView.getItems(), "HIGH"));
+			this.priorityCountMediumLabel.setText("MEDIUM " + PriorityCount.getPriorityCount(this.listView.getItems(), "MEDIUM"));
+			this.priorityCountLowLabel.setText("LOW " + PriorityCount.getPriorityCount(this.listView.getItems(), "LOW"));
+			this.priorityCountHighLabel.setOpacity(1);
+			this.priorityCountMediumLabel.setOpacity(1);
+			this.priorityCountLowLabel.setOpacity(1);
+			this.togglePriority.setText("Hide Priority Count");
+			this.showPriorityCount = true;
+		} else {
+			this.priorityCountHighLabel.setOpacity(0);
+			this.priorityCountMediumLabel.setOpacity(0);
+			this.priorityCountLowLabel.setOpacity(0);
+			this.togglePriority.setText("Show Priority Count");
+			this.showPriorityCount = false;
 		}
 	}
 
