@@ -1,0 +1,3 @@
+gerald,100
+taz,97
+king,45
