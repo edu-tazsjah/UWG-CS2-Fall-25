@@ -39,11 +39,6 @@
 			<version>5.5.1</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>edu.westga.cs1302</groupId>
-			<artifactId>lab5</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
     </dependencies>
     <build>
     	<pluginManagement>

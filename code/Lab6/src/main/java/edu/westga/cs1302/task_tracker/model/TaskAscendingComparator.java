@@ -1,5 +1,7 @@
 package edu.westga.cs1302.task_tracker.model;
 
+import java.util.Comparator;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 
@@ -9,7 +11,7 @@ import javafx.scene.control.ListView;
  *  @author CS 1302
  *  @version Fall 2025
  */
-public class TaskAscendingComparator implements Comparable<Task> {
+public class TaskAscendingComparator implements Comparator<Task> {
 	
 	@FXML
 	private ListView<Task> sorted;
@@ -30,13 +32,11 @@ public class TaskAscendingComparator implements Comparable<Task> {
 
 	/** Compares a task to a task and returns an int
 	 * 
-	 * @param task that needs to be compared
 	 * @return int which is the result
 	 */
 	@Override
-	public int compareTo(Task task) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int compare(Task t1, Task t2) {
+		return t1.getPriority().compareTo(t2.getPriority());
 	}
 
 }

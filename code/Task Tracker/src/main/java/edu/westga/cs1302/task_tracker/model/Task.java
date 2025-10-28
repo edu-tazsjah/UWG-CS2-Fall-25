@@ -13,9 +13,26 @@ public class Task {
 	 * @version Fall 2025
 	 */
 	public enum TaskPriority {
-		HIGH,
-		MEDIUM,
-		LOW;
+		HIGH(1),
+		MEDIUM(2),
+		LOW(3);
+		
+		private int value;
+		
+		TaskPriority(int value) {
+			this.value = value;
+		}
+		
+		/** Return the value for the priority
+		 * HIGH is 1
+		 * MEDIUM is 2
+		 * LOW is 3
+		 * 
+		 * @return the value
+		 */
+		public int getValue() {
+			return this.value;
+		}
 	}
 	
 	private String description;
@@ -107,18 +124,5 @@ public class Task {
 	@Override
 	public String toString() {
 		return this.name;
-	}
-	
-	/** Compare a task to this task
-	 * 
-	 * @precondition none
-	 * @postcondition none
-	 * 
-	 * @param task you wish to compare
-	 * @return task 0 or 1 for true or false
-	 * 
-	 */
-	public int compareTo(Task task) {
-	    return this.getPriority().compareTo(task.getPriority());
 	}
 }
