@@ -49,6 +49,7 @@ public class MainWindow {
     void addTask(ActionEvent event) {
     	try {
     		this.tasks.getItems().add(new Task(this.name.getText(), this.description.getText(), this.priority.getValue()));
+    		this.sortTasksOnChange();
     	} catch (IllegalArgumentException error) {
     		Alert alert = new Alert(AlertType.ERROR);
     		alert.setContentText(error.getMessage());
@@ -70,6 +71,7 @@ public class MainWindow {
     	if (selectedTask != null) {
     		this.selectedPriority.setText(selectedTask.getPriority().toString());
     		this.selectedDescription.setText(selectedTask.getDescription());
+    		this.sortTasksOnChange();
     	}
     }
 
@@ -85,6 +87,7 @@ public class MainWindow {
     	Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
     	if (selectedTask != null) {
     		this.tasks.getItems().remove(selectedTask);
+    		this.sortTasksOnChange();
     	}
     }
 
@@ -100,6 +103,7 @@ public class MainWindow {
     	Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
     	if (selectedTask != null) {
     		selectedTask.setDescription(this.selectedDescription.getText());
+    		this.sortTasksOnChange();
     	}
     }
 
@@ -126,9 +130,7 @@ public class MainWindow {
      */
     @FXML
     void sortTasks(ActionEvent event) {
-    	if (this.order.getValue() != null) {
-    		this.tasks.getItems().sort(this.order.getValue());
-    	}
+    	this.sortTasksOnChange();
     }
 
     /** Perform any needed initialization of UI components and underlying objects.
@@ -144,5 +146,17 @@ public class MainWindow {
     	this.order.getItems().add(new Ascending());
     	this.order.getItems().add(new Descending());
     	this.priority.setValue(this.priority.getItems().get(0));
+    }
+    
+    /** Private method to sort tasks
+     * 
+     * @precondition check if combobox is not null
+     * @postcondition none
+     * 
+     */
+    private void sortTasksOnChange() {
+    	if (this.order.getValue() != null) {
+    		this.tasks.getItems().sort(this.order.getValue());
+    	}
     }
 }
