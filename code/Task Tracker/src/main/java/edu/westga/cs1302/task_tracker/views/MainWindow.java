@@ -36,6 +36,7 @@ public class MainWindow {
     @FXML private TextField selectedPriority;
     @FXML private ListView<Task> tasks;
     @FXML private ComboBox<Comparator<Task>> order;
+    @FXML private ListView<Task> subtasks;
 
     /** Add a new task with the provided information to the listview.
      * 
@@ -161,6 +162,37 @@ public class MainWindow {
     private void sortTasksOnChange() {
     	if (this.order.getValue() != null) {
     		this.tasks.getItems().sort(this.order.getValue());
+    	}
+    }
+    
+    /** Adds a subtask to a TaskObject
+     * 
+     * @precondition selectTask == null
+     * @postcondition none
+     * 
+     */
+    @FXML
+    private void addSubTask() {
+    	try {
+    		Task selectedTask = this.tasks.getSelectionModel().getSelectedItem();
+    		if (selectedTask == null) {
+    			throw new IllegalArgumentException("You must select a task to add a subtask.");
+    		}
+
+    		Task subTask = new Task(this.name.getText(), this.description.getText(), this.priority.getValue());
+    		Task updatedTask = selectedTask.addTask(subTask);
+
+    		int index = this.tasks.getSelectionModel().getSelectedIndex();
+    		this.tasks.getItems().set(index, updatedTask);
+    		
+    		this.subtasks.getItems().add(subTask);
+
+    		this.sortTasksOnChange();
+
+    	} catch (IllegalArgumentException error) {
+    		Alert alert = new Alert(Alert.AlertType.ERROR);
+    		alert.setContentText(error.getMessage());
+    		alert.showAndWait();
     	}
     }
 }

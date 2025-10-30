@@ -62,7 +62,7 @@ public class ContainerTask extends Task {
 	 */
 	@Override
 	public String toString() {
-		String result = this.getName() + " (Sub)";
+		String result = this.getName() + " (+)";
 		return result;
 	}
 }

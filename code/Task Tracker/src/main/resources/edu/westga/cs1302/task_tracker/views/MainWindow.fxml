@@ -8,21 +8,21 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="482.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.task_tracker.views.MainWindow">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="552.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.westga.cs1302.task_tracker.views.MainWindow">
    <children>
       <Button layoutX="16.0" layoutY="152.0" mnemonicParsing="false" onAction="#addTask" prefHeight="25.0" prefWidth="68.0" text="Add Task" />
-      <Label layoutX="73.0" layoutY="27.0" text="Name" />
-      <Label layoutX="230.0" layoutY="27.0" text="Description" />
-      <Label layoutX="70.0" layoutY="75.0" text="Priority" />
-      <ListView fx:id="tasks" layoutX="14.0" layoutY="192.0" onMouseClicked="#selectTask" prefHeight="200.0" prefWidth="259.0" />
-      <TextField fx:id="name" layoutX="14.0" layoutY="47.0" />
-      <TextArea fx:id="description" layoutX="224.0" layoutY="47.0" prefHeight="93.0" prefWidth="243.0" />
-      <Button layoutX="187.0" layoutY="152.0" mnemonicParsing="false" onAction="#removeTask" text="Remove Task" />
-      <TextArea fx:id="selectedDescription" layoutX="291.0" layoutY="221.0" prefHeight="134.0" prefWidth="177.0" />
-      <Label layoutX="297.0" layoutY="202.0" text="Description" />
-      <Label layoutX="297.0" layoutY="156.0" text="Priority" />
-      <TextField fx:id="selectedPriority" editable="false" layoutX="291.0" layoutY="175.0" prefHeight="25.0" prefWidth="177.0" />
-      <ComboBox fx:id="priority" layoutX="14.0" layoutY="100.0" prefWidth="150.0" />
+      <Label layoutX="16.0" layoutY="27.0" prefHeight="17.0" prefWidth="38.0" text="Name" />
+      <Label layoutX="154.0" layoutY="27.0" text="Description" />
+      <Label layoutX="16.0" layoutY="72.0" text="Priority" />
+      <ListView fx:id="tasks" layoutX="14.0" layoutY="192.0" onMouseClicked="#selectTask" prefHeight="200.0" prefWidth="274.0" />
+      <TextField fx:id="name" layoutX="14.0" layoutY="47.0" prefHeight="25.0" prefWidth="128.0" />
+      <TextArea fx:id="description" layoutX="154.0" layoutY="48.0" prefHeight="88.0" prefWidth="128.0" />
+      <Button layoutX="199.0" layoutY="152.0" mnemonicParsing="false" onAction="#removeTask" text="Remove Task" />
+      <TextArea fx:id="selectedDescription" layoutX="317.0" layoutY="58.0" prefHeight="134.0" prefWidth="208.0" />
+      <Label layoutX="317.0" layoutY="27.0" text="Description" />
+      <Label layoutX="320.0" layoutY="209.0" text="Priority" />
+      <TextField fx:id="selectedPriority" editable="false" layoutX="397.0" layoutY="205.0" prefHeight="25.0" prefWidth="128.0" />
+      <ComboBox fx:id="priority" layoutX="14.0" layoutY="100.0" prefHeight="25.0" prefWidth="128.0" />
       <Button layoutX="21.0" layoutY="436.0" mnemonicParsing="false" onAction="#countPriorities" text="Count Priorities" />
       <Label layoutX="176.0" layoutY="440.0" text="High: " />
       <Label layoutX="266.0" layoutY="440.0" text="Medium: " />
@@ -30,9 +30,10 @@
       <Label fx:id="highCount" layoutX="206.0" layoutY="408.0" />
       <Label fx:id="mediumCount" layoutX="320.0" layoutY="408.0" />
       <Label fx:id="lowCount" layoutX="403.0" layoutY="410.0" />
-      <Button layoutX="320.0" layoutY="367.0" mnemonicParsing="false" onAction="#updateDescription" text="Update Description" />
+      <Button layoutX="408.0" layoutY="23.0" mnemonicParsing="false" onAction="#updateDescription" text="Update Description" />
       <Label layoutX="21.0" layoutY="400.0" text="Sort Tasks" />
       <ComboBox fx:id="order" layoutX="79.0" layoutY="398.0" onAction="#sortTasks" prefHeight="25.0" prefWidth="128.0" />
-      <Button layoutX="93.0" layoutY="152.0" mnemonicParsing="false" text="Add Subtask" />
+      <Button layoutX="101.0" layoutY="152.0" mnemonicParsing="false" onAction="#addSubTask" text="Add Subtask" />
+      <ListView fx:id="subtasks" layoutX="320.0" layoutY="244.0" prefHeight="146.0" prefWidth="208.0" />
    </children>
 </AnchorPane>
